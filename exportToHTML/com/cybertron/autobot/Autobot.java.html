@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Autobot.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Autobot.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">cybertron</span><span class="s2">.</span><span class="s1">autobot</span><span class="s2">;</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* Representa um Autobot da base, com seu nome, Energon (energia) e nível.</span>
+ <span class="s3">*</span>
+ <span class="s3">* Os campos são privados para que o Energon só seja alterado pelos</span>
+ <span class="s3">* métodos da classe, evitando valores alterados sem controle.</span>
+ <span class="s3">*/</span>
+<span class="s0">public class </span><span class="s1">Autobot </span><span class="s2">{</span>
+
+    <span class="s0">private </span><span class="s1">String nome</span><span class="s2">;</span>
+    <span class="s0">private double </span><span class="s1">energon</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">niveldeenergia</span><span class="s2">;</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Cria um Autobot com os dados iniciais.</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">nome nome do Autobot</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">energon quantidade inicial de Energon</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">niveldeenergia nível do Autobot</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">Autobot</span><span class="s2">(</span><span class="s1">String nome</span><span class="s2">, </span><span class="s0">double </span><span class="s1">energon</span><span class="s2">, </span><span class="s0">int </span><span class="s1">niveldeenergia</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nome </span><span class="s2">= </span><span class="s1">nome</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">energon </span><span class="s2">= </span><span class="s1">energon</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">niveldeenergia </span><span class="s2">= </span><span class="s1">niveldeenergia</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getNome</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">nome</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setNome</span><span class="s2">(</span><span class="s1">String nome</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nome </span><span class="s2">= </span><span class="s1">nome</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public double </span><span class="s1">getEnergon</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">energon</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setEnergon</span><span class="s2">(</span><span class="s0">double </span><span class="s1">energon</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">energon </span><span class="s2">= </span><span class="s1">energon</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">getNiveldeenergia</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">niveldeenergia</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setNiveldeenergia</span><span class="s2">(</span><span class="s0">int </span><span class="s1">niveldeenergia</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">niveldeenergia </span><span class="s2">= </span><span class="s1">niveldeenergia</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

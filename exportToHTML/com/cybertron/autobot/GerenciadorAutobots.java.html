@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>GerenciadorAutobots.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #2aacb8;}
+.s5 { color: #67a37c; font-style: italic;}
+.s6 { color: #68a67e; font-style: italic;}
+.s7 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+GerenciadorAutobots.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">cybertron</span><span class="s2">.</span><span class="s1">autobot</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* Gerencia o grupo de Autobots da base: busca, repara e classifica, e concentra as</span>
+ <span class="s3">* regras de negócio (classificação por Energon e reparo), deixando a classe Autobot</span>
+ <span class="s3">* responsável apenas por guardar os dados.</span>
+ <span class="s3">*/</span>
+<span class="s0">public class </span><span class="s1">GerenciadorAutobots </span><span class="s2">{</span>
+
+    <span class="s0">private static final double </span><span class="s1">EnergonElite </span><span class="s2">= </span><span class="s4">500</span><span class="s2">;</span>
+    <span class="s0">private static final double  </span><span class="s1">EnergonPadrao </span><span class="s2">= </span><span class="s4">200</span><span class="s2">;</span>
+    <span class="s0">private static final double  </span><span class="s1">EnergiaReparo </span><span class="s2">= </span><span class="s4">100</span><span class="s2">;</span>
+
+    <span class="s0">private </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Autobot</span><span class="s2">&gt; </span><span class="s1">lista </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+
+    <span class="s0">public void </span><span class="s1">adicionar</span><span class="s2">(</span><span class="s1">Autobot autobot</span><span class="s2">) {</span>
+        <span class="s1">lista</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">autobot</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Soma o Energon de todos os Autobots cadastrados.</span>
+     <span class="s3">* </span><span class="s5">@return </span><span class="s3">Energon total da base; 0 se não houver nenhum Autobot.</span>
+     <span class="s3">*/</span>
+    <span class="s0">public double </span><span class="s1">calcularEnergonTotal</span><span class="s2">() {</span>
+        <span class="s0">double </span><span class="s1">total </span><span class="s2">= </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">lista</span><span class="s2">.</span><span class="s1">size</span><span class="s2">(); </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s1">total </span><span class="s2">+= </span><span class="s1">lista</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getEnergon</span><span class="s2">();</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">total</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Busca um Autobot pelo nome exato.</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s6">&lt;p&gt;</span><span class="s3">A comparação diferencia maiúsculas de minúsculas.</span><span class="s6">&lt;/p&gt;</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s5">@param </span><span class="s3">nome nome do Autobot procurado</span>
+     <span class="s3">* </span><span class="s5">@return </span><span class="s3">o Autobot encontrado, ou {</span><span class="s5">@code </span><span class="s3">null} se nenhum tiver esse nome</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">Autobot buscar</span><span class="s2">(</span><span class="s1">String nome</span><span class="s2">) {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Autobot autobot </span><span class="s2">: </span><span class="s1">lista</span><span class="s2">) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">autobot</span><span class="s2">.</span><span class="s1">getNome</span><span class="s2">().</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">nome</span><span class="s2">)) {</span>
+                <span class="s0">return </span><span class="s1">autobot</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return null</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Recupera Energon de um Autobot.</span>
+     <span class="s3">* </span><span class="s6">&lt;p&gt;</span><span class="s3">Energon negativo indica dado inconsistente. Corrigir isso em silêncio</span>
+     <span class="s3">* esconderia o problema, por isso o reparo é recusado com um erro.</span><span class="s6">&lt;/p&gt;</span>
+     <span class="s3">* </span><span class="s5">@param </span><span class="s3">autobot Autobot a ser reparado</span>
+     <span class="s3">* </span><span class="s5">@throws </span><span class="s3">IllegalArgumentException se o Energon do Autobot for negativo</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">reparar</span><span class="s2">(</span><span class="s1">Autobot autobot</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">autobot</span><span class="s2">.</span><span class="s1">getEnergon</span><span class="s2">() &lt; </span><span class="s4">0</span><span class="s2">) {</span>
+            <span class="s0">throw new </span><span class="s1">IllegalArgumentException</span><span class="s2">(</span><span class="s7">&quot;Energon negativo&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s1">autobot</span><span class="s2">.</span><span class="s1">setEnergon</span><span class="s2">(</span><span class="s1">autobot</span><span class="s2">.</span><span class="s1">getEnergon</span><span class="s2">() + </span><span class="s1">EnergiaReparo</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Classifica o Autobot pelo nível de Energon, para definir seu papel na base.</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s6">&lt;p&gt;</span><span class="s3">Energon acima do limite de elite resulta em ELITE; acima do limite</span>
+     <span class="s3">* padrão, em PADRAO. Nos demais casos (inclusive Energon negativo),</span>
+     <span class="s3">* resulta em RESERVA.</span><span class="s6">&lt;/p&gt;</span>
+     <span class="s3">*</span>
+     <span class="s3">* </span><span class="s5">@param </span><span class="s3">autobot Autobot a ser classificado</span>
+     <span class="s3">* </span><span class="s5">@return </span><span class="s3">&quot;ELITE&quot;, &quot;PADRAO&quot; ou &quot;RESERVA&quot;</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">String classificar</span><span class="s2">(</span><span class="s1">Autobot autobot</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">autobot</span><span class="s2">.</span><span class="s1">getEnergon</span><span class="s2">() &gt; </span><span class="s1">EnergonElite</span><span class="s2">) {</span>
+            <span class="s0">return </span><span class="s7">&quot;ELITE&quot;</span><span class="s2">;</span>
+        <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">autobot</span><span class="s2">.</span><span class="s1">getEnergon</span><span class="s2">() &gt; </span><span class="s1">EnergonPadrao</span><span class="s2">) {</span>
+            <span class="s0">return </span><span class="s7">&quot;PADRAO&quot;</span><span class="s2">;</span>
+        <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+            <span class="s0">return </span><span class="s7">&quot;RESERVA&quot;</span><span class="s2">;</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

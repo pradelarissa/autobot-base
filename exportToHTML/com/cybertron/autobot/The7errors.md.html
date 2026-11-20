@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>The7errors.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+The7errors.md</font>
+</center></td></tr></table>
+<pre><span class="s0">Erro 1</span><span class="s1">: </span><span class="s0">Contagem de </span><span class="s1">'</span><span class="s0">loop for' errada.</span>
+<span class="s0">Onde</span><span class="s1">: </span><span class="s0">Classe GerenciadorAutobots.java, método calcularEnergonTotal.</span>
+<span class="s0">Boa prática violada</span><span class="s1">: </span><span class="s0">Ao invés de considerar que toda a contagem na programação </span>
+<span class="s0">inicia com 0, o código indicava um loop a mais, indo além dos valores da lista.</span>
+<span class="s0">Isso ocorre por erro de condição na adição.</span>
+<span class="s1">(</span><span class="s0">ex</span><span class="s1">: </span><span class="s0">a lista tem 3 valores, mas o loop considera 4</span><span class="s1">)</span><span class="s0">.</span>
+<span class="s0">Correção</span><span class="s1">: </span><span class="s0">Na linha 19</span><span class="s1">: (</span><span class="s0">for </span><span class="s1">(</span><span class="s0">int i = 0; i </span><span class="s1">&lt; </span><span class="s0">lista.size</span><span class="s1">()</span><span class="s0">; i++</span><span class="s1">))</span><span class="s0">, removi o sinal</span>
+<span class="s0">de igualdade entre o </span><span class="s1">&lt; </span><span class="s0">e a lista.size</span><span class="s1">()</span><span class="s0">, tornando a condição verdadeira para a </span>
+<span class="s0">adição correta.</span>
+
+<span class="s0">Erro 2</span><span class="s1">: </span><span class="s0">nomes de difícil identificação - Nomes que não dizem nada</span>
+<span class="s0">Onde</span><span class="s1">: </span><span class="s0">Autobot.java </span><span class="s1">(</span><span class="s0">mudanças posteriores em todas as classes, porém a designação</span>
+<span class="s0">original está em Autobot.java</span><span class="s1">) </span><span class="s0">e GerenciadorAutobots.java.</span>
+<span class="s0">Boa prática violada</span><span class="s1">: </span><span class="s0">O atributo </span><span class="s1">'</span><span class="s0">n', </span><span class="s1">'</span><span class="s0">e', e </span><span class="s1">'</span><span class="s0">nivel' estavam muito abrangentes, </span>
+<span class="s0">sendo necessário a troca desses nomes por outros mais explícitos quanto à funcio-</span>
+<span class="s0">nalidade de cada, ajudando o programador a não se perder quanto ao uso de cada</span>
+<span class="s0">atributo. Além disso, o </span><span class="s1">'</span><span class="s0">a' nos métodos criados é um nome que não indica nada,</span>
+<span class="s0">sendo preciso modificá-lo.</span>
+<span class="s0">Correção</span><span class="s1">: </span><span class="s0">em todas as linhas de código que os atributos descritos estavam, modifi-</span>
+<span class="s0">quei seus nomes para palavras mais representativas</span><span class="s1">: '</span><span class="s0">n' virou </span><span class="s1">'</span><span class="s0">nome', </span><span class="s1">'</span><span class="s0">e' virou </span>
+<span class="s1">'</span><span class="s0">energon' e </span><span class="s1">'</span><span class="s0">nivel' virou </span><span class="s1">'</span><span class="s0">niveldeenergia'. O </span><span class="s1">'</span><span class="s0">a' virou </span><span class="s1">'</span><span class="s0">autobot', para indicar que</span>
+<span class="s0">estamos falando deles.</span>
+
+<span class="s0">Erro 3</span><span class="s1">: </span><span class="s0">atributos públicos - falta de encapsulamento</span>
+<span class="s0">Onde</span><span class="s1">: </span><span class="s0">Autobot.java </span><span class="s1">(</span><span class="s0">mudanças posteriores em todas as classes</span><span class="s1">)</span><span class="s0">.</span>
+<span class="s0">Boa prática violada</span><span class="s1">: </span><span class="s0">Para evitar mal uso dos atributos </span><span class="s1">(</span><span class="s0">podendo gerar mudanças e </span>
+<span class="s0">comprometer o código e a integridade da empresa</span><span class="s1">)</span><span class="s0">, eles devem ser privados ao invés</span>
+<span class="s0">de públicos </span><span class="s1">(</span><span class="s0">encapsulamento</span><span class="s1">)</span><span class="s0">. Depois, para usar os atributos, devemos fazer getters </span>
+<span class="s0">e setters.</span>
+<span class="s0">Correção</span><span class="s1">: </span><span class="s0">Na classe de origem do problema, tornei os atributos privados e construí </span>
+<span class="s0">os getters e setters de cada atributo. Depois, modifiquei seus nomes em cada classe</span>
+<span class="s0">onde estão presentes para usá-los </span><span class="s1">(</span><span class="s0">ex</span><span class="s1">: </span><span class="s0">getNome; setNome; etc</span><span class="s1">)</span><span class="s0">.</span>
+
+<span class="s0">Erro 4</span><span class="s1">: </span><span class="s0">Uso de número ao invés de variável - Números mágicos</span>
+<span class="s0">Onde</span><span class="s1">: </span><span class="s0">Classe GerenciadorAutobots.java, método classificar e reparo.</span>
+<span class="s0">Boa prática violada</span><span class="s1">: </span><span class="s0">Ao usarmos números soltos, é possível que o programador se con-</span>
+<span class="s0">funda quanto à função/significado que esse número tem </span><span class="s1">(</span><span class="s0">o que ele representa</span><span class="s1">) </span><span class="s0">e, ao</span>
+<span class="s0">modificarmos esse número, teremos muito trabalho mudando ele em todos os lugares que </span>
+<span class="s0">ele aparece. Portanto, criamos variáveis com nome para ele, sendo mais fácil de iden-</span>
+<span class="s0">tificar seu uso e de modificar seu valor.</span>
+<span class="s0">Correção</span><span class="s1">: </span><span class="s0">Declarei as variáveis</span><span class="s1">:</span>
+<span class="s0">private static final double EnergonElite = 500;</span>
+<span class="s0">private static final double  EnergonPadrao = 200;</span>
+<span class="s0">private static final double  EnergonPadrao = 100;</span>
+<span class="s0">Depois, apliquei seu nome no código</span><span class="s1">:</span>
+<span class="s0">if </span><span class="s1">(</span><span class="s0">a.getEnergon</span><span class="s1">() &gt; </span><span class="s0">EnergonElite</span><span class="s1">) </span><span class="s0">{</span>
+<span class="s0">return </span><span class="s1">&quot;</span><span class="s0">ELITE</span><span class="s1">&quot;</span><span class="s0">;</span>
+<span class="s0">} else if </span><span class="s1">(</span><span class="s0">a.getEnergon</span><span class="s1">() &gt; </span><span class="s0">EnergonPadrao</span><span class="s1">) </span><span class="s0">{</span>
+<span class="s0">return </span><span class="s1">&quot;</span><span class="s0">PADRAO</span><span class="s1">&quot;</span><span class="s0">;</span>
+<span class="s0">if </span><span class="s1">(</span><span class="s0">autobot.getEnergon</span><span class="s1">() &lt; </span><span class="s0">0</span><span class="s1">) </span><span class="s0">{</span>
+<span class="s0">throw new IllegalArgumentException</span><span class="s1">(&quot;</span><span class="s0">Energon negativo</span><span class="s1">&quot;)</span><span class="s0">;</span>
+<span class="s0">}</span>
+<span class="s0">autobot.setEnergon</span><span class="s1">(</span><span class="s0">autobot.getEnergon</span><span class="s1">() </span><span class="s0">+ EnergiaReparo</span><span class="s1">)</span><span class="s0">;</span>
+
+<span class="s0">Erro 5</span><span class="s1">: </span><span class="s0">Uso de == ao invés de equals</span>
+<span class="s0">Onde</span><span class="s1">: </span><span class="s0">Classe GerenciadorAutobots.java - public autobot buscar</span>
+<span class="s0">Boa prática violada</span><span class="s1">: </span><span class="s0">O == compara o local onde as infos estão, enquanto  o equals </span>
+<span class="s0">compara o texto em si.</span>
+<span class="s0">Correção</span><span class="s1">:</span>
+<span class="s0">if </span><span class="s1">(</span><span class="s0">a.getNome</span><span class="s1">() </span><span class="s0">== nome</span><span class="s1">) </span><span class="s0">é corrigido para</span><span class="s1">:</span>
+<span class="s0">if </span><span class="s1">(</span><span class="s0">a.getNome</span><span class="s1">()</span><span class="s0">.equals</span><span class="s1">(</span><span class="s0">nome</span><span class="s1">))</span>
+
+<span class="s0">Erro 6</span><span class="s1">: </span><span class="s0">O catch está vazio, então o erro de Energon negativo é lançado porém jogado fora </span>
+<span class="s0">sem deixar um alerta.</span>
+<span class="s0">Onde</span><span class="s1">: </span><span class="s0">GerenciadorAutobots.java, método reparar.</span>
+<span class="s0">Boa prática violada</span><span class="s1">: </span><span class="s0">tratamento de exceções </span><span class="s1">(</span><span class="s0">catch nunca vazio</span><span class="s1">)</span><span class="s0">.</span>
+<span class="s0">Correção</span><span class="s1">: </span><span class="s0">removi o try/catch vazio e lancei o  IllegalArgumentException quando o Energon</span>
+<span class="s0">é negativo, documentando o @throws no Javadoc.</span>
+
+<span class="s0">Erro 7</span><span class="s1">: </span><span class="s0">Documentação vaga e inútil.</span>
+<span class="s0">Onde</span><span class="s1">: </span><span class="s0">Autobot.java e GerenciadorAutobots.java </span><span class="s1">(</span><span class="s0">métodos</span><span class="s1">: (</span><span class="s0">buscar, classificar, </span>
+<span class="s0">calcularEnergonTotal, reparar</span><span class="s1">)</span><span class="s0">.</span>
+<span class="s0">Boa prática violada</span><span class="s1">: </span><span class="s0">A documentação descreve pobremente o que está acontecendo no código,</span>
+<span class="s0">sendo raza e apenas indicando o que o nome da classe ou do método automaticamente já indica.</span>
+<span class="s0">Correção</span><span class="s1">: </span><span class="s0">Escrevi Javadocs nos métodos não óbvios </span><span class="s1">(</span><span class="s0">buscar, classificar, calcularEnergonTotal, </span>
+<span class="s0">reparar</span><span class="s1">)</span><span class="s0">, explicando para o quê eles servem, seu objetivo no código.</span>
+</pre>
+</body>
+</html>

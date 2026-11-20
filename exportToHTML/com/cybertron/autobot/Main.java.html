@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">cybertron</span><span class="s2">.</span><span class="s1">autobot</span><span class="s2">;</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* Ponto de entrada da base dos Autobots.</span>
+ <span class="s3">*/</span>
+<span class="s0">public class </span><span class="s1">Main </span><span class="s2">{</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+
+        <span class="s1">GerenciadorAutobots gerenciador </span><span class="s2">= </span><span class="s0">new </span><span class="s1">GerenciadorAutobots</span><span class="s2">();</span>
+
+        <span class="s1">Autobot optimus </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Autobot</span><span class="s2">(</span><span class="s4">&quot;Optimus Prime&quot;</span><span class="s2">, </span><span class="s5">850.0</span><span class="s2">, </span><span class="s5">10</span><span class="s2">);</span>
+        <span class="s1">Autobot bumblebee </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Autobot</span><span class="s2">(</span><span class="s4">&quot;Bumblebee&quot;</span><span class="s2">, </span><span class="s5">320.0</span><span class="s2">, </span><span class="s5">5</span><span class="s2">);</span>
+        <span class="s1">Autobot ratchet </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Autobot</span><span class="s2">(</span><span class="s4">&quot;Ratchet&quot;</span><span class="s2">, </span><span class="s5">180.0</span><span class="s2">, </span><span class="s5">7</span><span class="s2">);</span>
+
+        <span class="s1">gerenciador</span><span class="s2">.</span><span class="s1">adicionar</span><span class="s2">(</span><span class="s1">optimus</span><span class="s2">);</span>
+        <span class="s1">gerenciador</span><span class="s2">.</span><span class="s1">adicionar</span><span class="s2">(</span><span class="s1">bumblebee</span><span class="s2">);</span>
+        <span class="s1">gerenciador</span><span class="s2">.</span><span class="s1">adicionar</span><span class="s2">(</span><span class="s1">ratchet</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Energon total: &quot; </span><span class="s2">+ </span><span class="s1">gerenciador</span><span class="s2">.</span><span class="s1">calcularEnergonTotal</span><span class="s2">());</span>
+
+        <span class="s1">Autobot encontrado </span><span class="s2">= </span><span class="s1">gerenciador</span><span class="s2">.</span><span class="s1">buscar</span><span class="s2">(</span><span class="s4">&quot;Bumblebee&quot;</span><span class="s2">);</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">encontrado </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Encontrado: &quot; </span><span class="s2">+ </span><span class="s1">encontrado</span><span class="s2">.</span><span class="s1">getNome</span><span class="s2">());</span>
+        <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Autobot nao encontrado&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s1">gerenciador</span><span class="s2">.</span><span class="s1">reparar</span><span class="s2">(</span><span class="s1">ratchet</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Energon do Ratchet: &quot; </span><span class="s2">+ </span><span class="s1">ratchet</span><span class="s2">.</span><span class="s1">getEnergon</span><span class="s2">());</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Classificacao: &quot; </span><span class="s2">+ </span><span class="s1">gerenciador</span><span class="s2">.</span><span class="s1">classificar</span><span class="s2">(</span><span class="s1">ratchet</span><span class="s2">));</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
